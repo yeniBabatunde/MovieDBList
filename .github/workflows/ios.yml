@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
@@ -26,14 +26,11 @@ jobs:
       with:
         xcode-version: '15.0.1' # Adjust the Xcode version as needed
 
-    - name: Install dependencies
-      run: |
-        bundle install
-        bundle exec pod install # If you're using CocoaPods
-        gem install cocoapods # If needed for CocoaPods
+    - name: Resolve SPM dependencies
+      run: xcodebuild -resolvePackageDependencies
 
     - name: Clean build
       run: xcodebuild clean -scheme MovieDBList -configuration Release
 
     - name: Build app
-      run: xcodebuild build -scheme MovieDBList -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
+      run: xcodebuild build -scheme MovieDBList -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=17.0'
