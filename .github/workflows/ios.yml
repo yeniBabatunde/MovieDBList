@@ -1,0 +1,39 @@
+name: iOS CI
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7' # Adjust the Ruby version as needed
+
+    - name: Set up Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '15.0.1' # Adjust the Xcode version as needed
+
+    - name: Install dependencies
+      run: |
+        bundle install
+        bundle exec pod install # If you're using CocoaPods
+        gem install cocoapods # If needed for CocoaPods
+
+    - name: Clean build
+      run: xcodebuild clean -scheme MovieDBList -configuration Release
+
+    - name: Build app
+      run: xcodebuild build -scheme MovieDBList -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
