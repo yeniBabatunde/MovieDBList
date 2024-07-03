@@ -11,17 +11,13 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
 
     steps:
-    - name: Checkout repository
+    - name: check Xcode version
+      run: /usr/bin/xcodebuild -version
+    
+    - name: checkout repository
       uses: actions/checkout@v3
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7' # Adjust the Ruby version as needed
 
     - name: Set up Xcode
       uses: maxim-lobanov/setup-xcode@v1
