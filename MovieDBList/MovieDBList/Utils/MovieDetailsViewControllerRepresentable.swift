@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkHandling
 
 struct MovieDetailsViewControllerRepresentable: UIViewControllerRepresentable {
     

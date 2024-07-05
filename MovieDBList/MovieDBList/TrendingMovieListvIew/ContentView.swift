@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkHandling
 
 struct ContentView: View {
     
@@ -34,6 +35,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Movie List")
+            .navigationBarTitleDisplayMode(.inline)
             .background(Color.clear)
             .onAppear {
                 viewModel.getAllTrendingList()
@@ -47,6 +49,7 @@ struct ContentView: View {
             }
             
         }
+        .foregroundColor(Color.black)
     }
 }
 

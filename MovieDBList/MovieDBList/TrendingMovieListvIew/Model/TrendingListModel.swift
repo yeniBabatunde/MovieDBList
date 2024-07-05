@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - TrendingList
 struct TrendingList: Codable {
     var page: Int?
     var results: [TrendingListItem]?
@@ -20,7 +20,7 @@ struct TrendingList: Codable {
     }
 }
 
-// MARK: - Result
+// MARK: - TrendingListItem
 struct TrendingListItem: Codable {
     var backdropPath: String?
     var id: Int?

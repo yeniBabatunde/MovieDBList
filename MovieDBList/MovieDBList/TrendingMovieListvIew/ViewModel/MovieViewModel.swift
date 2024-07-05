@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkHandling
 
 class MovieViewModel: ObservableObject {
     

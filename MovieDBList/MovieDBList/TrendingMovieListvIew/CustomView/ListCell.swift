@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import NetworkHandling
 
 struct ListCell: View {
     var title: String
@@ -21,19 +21,22 @@ struct ListCell: View {
                     .resizable()
                     .frame(width: 130, height: 70)
                     .cornerRadius(5)
+                    .background(Color.clear)
             } else {
                 ZStack {
-                    Image("")
+                    Image(systemName: "video.slash")
                         .resizable()
+                        .foregroundColor(Color.gray)
                         .frame(width: 130, height: 70)
                         .background(Color.gray)
                         .cornerRadius(5)
                     
                     ActivityIndicator(style: .medium)
                         .onAppear {
-                            viewModel.fetchImageUrlSring(urlString: imageUrlString, completion: {})
+                            viewModel.fetchImageUrlString(urlString: imageUrlString, completion: {})
                         }
                 }
+                .background(Color.clear)
             }
             
             VStack(alignment: .leading) {
@@ -43,14 +46,13 @@ struct ListCell: View {
                 
                 Text("Rating: \(rating) ⭐")
                     .font(.subheadline)
-                    .foregroundStyle(Color.secondary)
+                    .foregroundColor(Color.secondary)
                     .lineLimit(2)
                     .minimumScaleFactor(0.2)
             }
-            
-       
+            .background(Color.clear)
         }
-        .background(Color.white)
+        .background(Color.clear)
         .cornerRadius(10)
         
     }
@@ -58,7 +60,7 @@ struct ListCell: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let networkHandler = NetworkHandler()
+        let networkHandler = NetworkHandler(apiKey: AppConstants.API_KEY)
         ContentView(viewModel: MovieViewModel(networkHandler: networkHandler))
     }
 }

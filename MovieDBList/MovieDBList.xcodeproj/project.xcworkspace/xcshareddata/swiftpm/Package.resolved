@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "networkhandlerpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yeniBabatunde/NetworkHandlerPackage.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "35223059351894f74c65bb23ba8f5d3951cd4daf"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",

@@ -6,32 +6,38 @@
 //
 
 import Foundation
-import Combine
 import UIKit
+import NetworkHandling
 
 class ImageLoaderViewModel: ObservableObject {
     @Published var data: Data?
     
     private var networkHandler: NetworkHandling
-    private var cancellable: AnyCancellable?
     
     init(networkHandler: NetworkHandling) {
         self.networkHandler = networkHandler
     }
     
-    func fetchImageUrlSring(urlString: String, completion: @escaping () -> Void) {
+    func fetchImageUrlString(urlString: String, completion: @escaping () -> Void) {
         if let cachedData = getCachedImageData(for: urlString) {
             self.data = cachedData
             completion()
         } else {
-            cancellable = networkHandler.fetchImage(urlString: "\(AppConstants.IMAGE_BASE_URL)\(urlString)")
-                .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] data in
+            networkHandler.fetchImage(urlString: "\(AppConstants.IMAGE_BASE_URL)\(urlString)") { [weak self] result in
+                switch result {
+                case .success(let data):
                     DispatchQueue.main.async {
                         self?.data = data
                         self?.cacheImageData(data, for: urlString)
                         completion()
                     }
-                })
+                case .failure(let error):
+                    print("Error fetching image: \(error)")
+                    DispatchQueue.main.async {
+                        completion()
+                    }
+                }
+            }
         }
     }
     

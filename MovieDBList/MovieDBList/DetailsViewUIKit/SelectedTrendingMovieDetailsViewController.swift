@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NetworkHandling
 
 class SelectedTrendingMovieDetailsViewController: UIViewController {
     
@@ -27,7 +28,7 @@ class SelectedTrendingMovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         view.addSubviews(layout)
         
         layout.snp.makeConstraints { make in
@@ -36,7 +37,7 @@ class SelectedTrendingMovieDetailsViewController: UIViewController {
         
         viewModel = ImageLoaderViewModel(networkHandler: networkHandler)
         
-        viewModel?.fetchImageUrlSring(urlString: selectedItem.backdropPath ?? selectedItem.posterPath ?? "", completion: { [weak self] in
+        viewModel?.fetchImageUrlString(urlString: selectedItem.backdropPath ?? selectedItem.posterPath ?? "", completion: { [weak self] in
             self?.populateView()
         })
     }
@@ -47,7 +48,9 @@ class SelectedTrendingMovieDetailsViewController: UIViewController {
         if let data = viewModel?.data, let image = UIImage(data: data) {
             DispatchQueue.main.async { [weak self] in
                 self?.layout.detailsImage.image = image
+                self?.layout.showLoading(false)
             }
         }
     }
+   
 }
