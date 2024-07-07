@@ -4,7 +4,7 @@ Welcome to the MovieDBList project! This project demonstrates a two-screen iOS a
 
 # Project Structure
 **List Screen:** Implemented using SwiftUI to display a list of movies.
-![alt text](https://github.com/yeniBabatunde/MovieDBList/assets/92518636/34e95004-7b5c-41be-a1bd-d2f77a099f84)
+<img src="https://github.com/yeniBabatunde/MovieDBList/assets/92518636/34e95004-7b5c-41be-a1bd-d2f77a099f84" width="100" height="200" />
 
 **Description Screen:** Implemented using UIKit to show the details of a selected movie.
 ![alt text](https://github.com/yeniBabatunde/MovieDBList/assets/92518636/c782f66a-6fe9-4001-a10b-70884b1cccd8)
