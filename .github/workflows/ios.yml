@@ -18,6 +18,7 @@ jobs:
 
     - name: Resolve Swift Package Manager dependencies
       run: xcodebuild -resolvePackageDependencies
+      working-directory: ./TMBDMovieList/MovieDBList
 
     - name: Build app
-      run: xcodebuild clean build -project MovieDBList/MovieDBList.xcodeproj -scheme MovieDBList -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+      run: xcodebuild clean build -project TMBDMovieList/MovieDBList.xcodeproj -scheme MovieDBList -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
