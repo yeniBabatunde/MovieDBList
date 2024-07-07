@@ -5,6 +5,7 @@ Welcome to the MovieDBList project! This project demonstrates a two-screen iOS a
 # Project Structure
 
 **Networking:** Handled with URLSession via a reusable package called NetworkHandling, installed using Swift Package Manager (SPM).
+
 **List Screen:** Implemented using SwiftUI to display a list of movies.
 
 <img src="https://github.com/yeniBabatunde/MovieDBList/assets/92518636/34e95004-7b5c-41be-a1bd-d2f77a099f84" width="300" />
@@ -15,7 +16,7 @@ Welcome to the MovieDBList project! This project demonstrates a two-screen iOS a
 
 **Image Caching:** Images are cached using FileManager to enhance performance and reduce network calls.
 **UI Constraints:** Managed using SnapKit for the UIKit components.
-**Continuous Integration: **Basic CI script setup using GitHub Actions to clean and build the application.
+**Continuous Integration:** asic CI script setup using GitHub Actions to clean and build the application.
 **Unit Tests:** Unit tests are written to cover different success and failure scenarios.
 
 # Installing Steps
@@ -37,10 +38,12 @@ Dependencies are managed using **Swift Package Manager (SPM)** and **SnapKit** i
 Build and Run the Project
 
 Select the appropriate target and device, then build and run the project using Xcode.
-Usage
+
+**Usage**
 Launch the application to see a list of movies displayed using SwiftUI.
 Tap on a movie to view its details on a screen implemented with UIKit.
-Continuous Integration
+
+**Continuous Integration**
 A basic CI script is included in the repository to clean and build the application using GitHub Actions. The script is located in https://github.com/yeniBabatunde/MovieDBList/blob/main/.github/workflows/ios.yml.
 
 **Unit Testing**
