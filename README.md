@@ -3,13 +3,16 @@
 Welcome to the MovieDBList project! This project demonstrates a two-screen iOS application using SwiftUI and UIKit, along with networking and continuous integration setup.
 
 # Project Structure
-**List Screen:** Implemented using SwiftUI to display a list of movies.
-<img src="https://github.com/yeniBabatunde/MovieDBList/assets/92518636/34e95004-7b5c-41be-a1bd-d2f77a099f84" width="200" />
-
-**Description Screen:** Implemented using UIKit to show the details of a selected movie.
-<img src="https://github.com/yeniBabatunde/MovieDBList/assets/92518636/c782f66a-6fe9-4001-a10b-70884b1cccd8" width="200" />
 
 **Networking:** Handled with URLSession via a reusable package called NetworkHandling, installed using Swift Package Manager (SPM).
+**List Screen:** Implemented using SwiftUI to display a list of movies.
+
+<img src="https://github.com/yeniBabatunde/MovieDBList/assets/92518636/34e95004-7b5c-41be-a1bd-d2f77a099f84" width="300" />
+
+**Description Screen:** Implemented using UIKit to show the details of a selected movie.
+
+<img src="https://github.com/yeniBabatunde/MovieDBList/assets/92518636/c782f66a-6fe9-4001-a10b-70884b1cccd8" width="300" />
+
 **Image Caching:** Images are cached using FileManager to enhance performance and reduce network calls.
 **UI Constraints:** Managed using SnapKit for the UIKit components.
 **Continuous Integration: **Basic CI script setup using GitHub Actions to clean and build the application.
