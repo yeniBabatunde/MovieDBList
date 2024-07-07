@@ -72,6 +72,7 @@
 		5822D3F92C34A34700DE6E34 /* MovieDetailsViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		5861BB7A2C377F0F001382DB /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		5861BB7D2C378904001382DB /* TestMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMovie.swift; sourceTree = "<group>"; };
+		588AF6022C3AD07D0068FE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 		5822D3A22C34207300DE6E34 /* MovieDBList */ = {
 			isa = PBXGroup;
 			children = (
+				588AF6022C3AD07D0068FE04 /* Info.plist */,
 				5822D3D52C34368F00DE6E34 /* Utils */,
 				5822D3D42C34363A00DE6E34 /* DetailsViewUIKit */,
 				5822D3D32C34360F00DE6E34 /* TrendingMovieListvIew */,
@@ -413,6 +415,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_KEY = b9fd3c0c458976b0ccced6820b43e561;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_URL = "https://api.themoviedb.org/3";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -477,6 +480,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_KEY = b9fd3c0c458976b0ccced6820b43e561;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_URL = "https://api.themoviedb.org/3";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -539,6 +543,7 @@
 				DEVELOPMENT_TEAM = 5MFNTDHEHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieDBList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -569,6 +574,7 @@
 				DEVELOPMENT_TEAM = 5MFNTDHEHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieDBList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
