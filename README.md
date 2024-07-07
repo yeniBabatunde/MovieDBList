@@ -4,7 +4,7 @@ Welcome to the MovieDBList project! This project demonstrates a two-screen iOS a
 
 # Project Structure
 
-**Networking:** Handled with URLSession via a reusable package called NetworkHandling, installed using Swift Package Manager (SPM).
+**Networking:** Handled with URLSession via a reusable package called NetworkHandling, installed using Swift Package Manager (SPM). **source code can be found:** https://github.com/yeniBabatunde/NetworkHandlerPackage
 
 **List Screen:** Implemented using SwiftUI to display a list of movies.
 
