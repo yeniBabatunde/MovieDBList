@@ -1,40 +1,35 @@
-name: "iOS CI"
-# name: "Build iOS app"
+name: iOS Build
 
 on:
-  # manual trigger but change to any supported event
-  # see addl: https://www.andrewhoog.com/post/how-to-build-react-native-android-app-with-github-actions/#3-run-build-workflow
-  # addl comment
-  workflow_dispatch:
-    branches: [main]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: macos-latest
+
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up ruby env
-        uses: ruby/setup-ruby@v1.138.0
-        with:
-          ruby-version: 3.2.1
-          bundler-cache: true
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
 
-      - name: install dependencies
-        run: |
-          gem install bundler
-          cd MovieDBList
-          bundle install
+    - name: Install Bundler
+      run: gem install bundler
 
-      - name: Check if the encrypted provisioning profile exists
-        run: ls -la ./
-         
-      - name: Decrypt provisioning profile
-        run: |
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          openssl aes-256-cbc -d -k "secret" -in profile.mobileprovision.enc -out profile.mobileprovision || echo "Decryption failed"
-          mv profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/ || echo "Move operation failed"
+    - name: Install dependencies
+      run: bundle install
 
-      - name: Set Xcode version
-        run: |
-         sudo xcode-select -s /Applications/Xcode_15.0.1.app/Contents/Developer
+    - name: Set up CocoaPods
+      run: bundle exec pod install
+      working-directory: ./MovieDBList
+
+    - name: Build app
+      run: xcodebuild clean build -project MovieDBList.xcodeproj -scheme MovieDBList -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=latest'
