@@ -23,7 +23,7 @@ Welcome to the MovieDBList project! This project demonstrates a two-screen iOS a
 Clone the Repository
 
 bash
-Copy code
+Copy:
 git clone https://github.com/yeniBabatunde/MovieDBList.git
 cd MovieDBList
 Open the Project in Xcode
