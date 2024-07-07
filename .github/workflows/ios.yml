@@ -16,21 +16,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up ruby env
-      uses: ruby/setup-ruby@v1.138.0
-      with:
-        ruby-version: 3.2.1
-        bundler-cache: true
-
-    - name: Install Bundler
-      run: gem install bundler
-
-    - name: Install dependencies
-      run: bundle install
-
-    - name: Set up CocoaPods
-      run: bundle exec pod install
-      working-directory: ./MovieDBList
+    - name: Resolve Swift Package Manager dependencies
+      run: xcodebuild -resolvePackageDependencies
 
     - name: Build app
       run: xcodebuild clean build -project MovieDBList.xcodeproj -scheme MovieDBList -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=latest'
