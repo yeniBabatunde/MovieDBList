@@ -10,27 +10,15 @@ import Foundation
 enum AppConstants {
     
     static let API_KEY = "b9fd3c0c458976b0ccced6820b43e561"
-    static let BASE_URL = "https://api.themoviedb.org/3/"
+    static let BASE_URL = "https://api.themoviedb.org/3"
     static let IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original"
     
+   
     struct Endpoint {
-        static let GET_ALL_TRENDING_LIST = "\(BASE_URL)trending/all/day"
+        static let GET_ALL_TRENDING_LIST = "\(BASE_URL)/trending/all/day"
   
         static func GET_IMAGE_BY_MOVIE_TYPE_ND_ID(type: String, id: Int) -> String {
             "\(BASE_URL)\(type)/\(id)/images?"
         }
-    }
-    
-    
-}
-
-var infoPlistProperty: [String: Any]? {
-    if  let path = Bundle.main.path(forResource: "Info", ofType: "plist"), let xml = FileManager.default.contents(atPath: path) {
-        return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [String: Any]
-    }
-    return nil
-}
-
-func infoPlistString(key: String) -> String {
-    infoPlistProperty![key] as! String
+    } 
 }
