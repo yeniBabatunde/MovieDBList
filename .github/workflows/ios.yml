@@ -20,4 +20,10 @@ jobs:
       run: xcodebuild -resolvePackageDependencies
 
     - name: Build app
-      run: xcodebuild clean build -project MovieDBList.xcodeproj -scheme MovieDBList -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+      run: |
+        xcodebuild clean build \
+          -project MovieDBList/MovieDBList.xcodeproj \
+          -scheme MovieDBList \
+          -sdk iphonesimulator \
+          -destination 'platform=iOS Simulator,name=iPhone 12,OS=latest'
+      working-directory: ./TMBDMovieList
